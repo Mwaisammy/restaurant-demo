@@ -42,7 +42,7 @@ const Menu = () => {
           name: "Wagyu Beef Tenderloin",
           description: "With pomme purée and red wine jus",
           price: "65",
-          imageUrl: "/chairs.jpg",
+          imageUrl: "/photo.jpg",
         },
         {
           name: "Dover Sole Meunière",
@@ -65,23 +65,25 @@ const Menu = () => {
           name: "Crème Brûlée",
           description: "Madagascar vanilla, fresh berries",
           price: "16",
-          imageUrl: "/hotelin.jpg",
+          imageUrl: "/hotel-banner-2.jpg",
         },
         {
           name: "Chocolate Soufflé",
           description: "Grand Marnier, crème anglaise",
           price: "18",
-          imageUrl: "/hotel1.jpg",
+          imageUrl: "/hotel-banner-2.jpg",
         },
         {
           name: "Cheese Selection",
           description: "Artisanal cheeses, honey, nuts",
           price: "22",
-          imageUrl: "/another1.jpg",
+          imageUrl: "/hotel-banner-1.jpg",
         },
       ],
     },
   ];
+
+  // active menu items
 
   const activeMenuItems =
     menuSections.find((section) => section.category === activeCategory)
