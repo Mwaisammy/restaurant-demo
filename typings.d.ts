@@ -1,10 +1,15 @@
-export interface MenuType {
+// typings.ts
+export interface MenuItem {
     name: string;
     description: string;
     price: string;
     imageUrl: string;
+  }
+
+
+export type MenuCategory = "starters" | "mains" | "desserts";
+
+export interface MenuSection {
+  category: MenuCategory;
+  items: MenuItem[];
 }
-
-
-export type MenuCategories = "starters" | "mains" | "desserts";
-export type Menu = Record<MenuCategories, MenuItem[]>;

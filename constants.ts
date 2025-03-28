@@ -1,0 +1,1 @@
+export const categories = ['starters', 'mains', 'deserts'] as const;
