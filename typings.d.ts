@@ -1,4 +1,4 @@
-export interface MenuType {
+export interface MenuItem {
     name: string;
     description: string;
     price: string;
@@ -6,5 +6,5 @@ export interface MenuType {
 }
 
 
-export type MenuCategories = "starters" | "mains" | "desserts";
+export type MenuCategory = "starters" | "mains" | "desserts";
 export type Menu = Record<MenuCategories, MenuItem[]>;

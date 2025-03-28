@@ -1,31 +1,45 @@
-import { Button } from "@/components/ui/button";
-import { Menu, MenuCategories, MenuType } from "@/typings";
-import clsx from "clsx";
+"use client";
+
+import { MenuItem } from "@/typings";
+import Image from "next/image";
 import React from "react";
 
-interface Props {
-  activeMenu: MenuCategories;
-  setActiveMenu: (category: MenuCategories) => void;
-  featuredMenu: MenuType[];
+interface FilteredMenuProps {
+  menuItems: MenuItem[];
 }
 
-const FilteredMenu = ({ activeMenu, setActiveMenu, featuredMenu }: Props) => {
+const FilteredMenu: React.FC<FilteredMenuProps> = ({ menuItems }) => {
   return (
-    <div className="flex flex-wrap gap-2 ml-auto">
-      {(["starters", "mains", "desserts"] as const).map((category) => (
-        <Button
-          key={category}
-          onClick={() => setActiveMenu(category)}
-          className={clsx(
-            "px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base font-medium transition-colors capitalize rounded-lg",
-            activeMenu === category
-              ? "bg-orange-500 text-white hover:bg-orange-600"
-              : "bg-white text-gray-600 hover:bg-gray-100 cursor-pointer"
-          )}
-        >
-          {category}
-        </Button>
-      ))}
+    <div className="space-y-8">
+      <div className="flex flex-wrap gap-2"></div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {menuItems.map((item, index) => (
+          <div
+            key={index}
+            className="bg-white rounded-lg shadow-md overflow-hidden"
+          >
+            {item.imageUrl && (
+              <div className="h-48 overflow-hidden">
+                <Image
+                  src={item.imageUrl}
+                  alt={item.name}
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
+            <div className="p-4">
+              <div className="flex justify-between items-start mb-2">
+                <h3 className="text-lg font-semibold">{item.name}</h3>
+                <span className="text-orange-500 font-bold">${item.price}</span>
+              </div>
+              <p className="text-gray-600 text-sm">{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
