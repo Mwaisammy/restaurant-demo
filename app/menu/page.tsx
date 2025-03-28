@@ -67,6 +67,7 @@ const Menu = () => {
           price: "16",
           imageUrl: "/hotel-banner-2.jpg",
         },
+
         {
           name: "Chocolate Soufflé",
           description: "Grand Marnier, crème anglaise",
